@@ -43,11 +43,11 @@ shape (for example `Aaaa9999!`).
 
 | Dataset | Class | Decision | Reason |
 |---|---|---|---|
-| Sample AI usage policies | **A – directly relevant** | **Integrated** into the ChromaDB knowledge base as 27 *reference* clauses | These are PS16's "sample AI usage policy". They map clause by clause onto the gateway's 21 governing clauses (§4). |
+| Sample AI usage policies | **A – directly relevant** | **Integrated** into the ChromaDB knowledge base as 27 *reference* clauses | These are PS16's "sample AI usage policy". They map clause by clause onto the gateway's 22 governing clauses (§4). |
 | CredDetX | **A – directly relevant** | **Integrated as an evaluation benchmark** (read in place, never copied, never used for training) | Measures the credential detection behind the BLOCK and REDACT outcomes. The hard negatives measure false alarms. |
 | Nemotron-PII | **A – directly relevant** | **Integrated as an evaluation benchmark** (stratified 2,000-document samples) | Measures PII detection and how much personal data would still reach the model. |
 | EasyOCR | **C – not relevant as a dataset** | **Excluded** (kept inside the original ZIP; its README and LICENSE are in `datasets/excluded/`) | It is an OCR engine, not data. It needs PyTorch plus a model download at runtime, while Tesseract already meets the OCR requirement and is tested. The brief says not to add large dependencies just to look more advanced. |
-| Microsoft Presidio | **C – not relevant as a dataset** | **Excluded** (same handling) | It is a detection SDK, not data. It needs spaCy and a language-model download. Its test fixtures are unlabelled for our purpose. It remains listed as future work (README §13). |
+| Microsoft Presidio | **C – not relevant as a dataset** | **Excluded** (same handling) | It is a detection SDK, not data. It needs spaCy and a language-model download. Its test fixtures are unlabelled for our purpose. It remains listed as future work (docs/TECHNICAL_DETAILS.md §13). |
 
 **Class B (indirectly relevant) and class D (harmful or unsuitable):** no dataset falls into either.
 No content was found that should be excluded as harmful. The secret-shaped and PII-shaped values are handled under the privacy rule above rather than excluded, because evaluating against them is exactly their purpose.

@@ -117,7 +117,7 @@ How to read these results:
 
 * **Send anyway.** The *Send anyway* row is the price of the non-strict review option: by design, MEDIUM items (e-mail, phone, date of birth, address) can be forwarded if the user insists. In **strict mode** the exposure is 16.6 % whatever the user chooses. This matches organisation policy clause DPP-2.
 * **Values classed as LOW.** Some missed card numbers and SSNs were detected but classed **LOW**, because they are sequential "documented example" values (for example `…3456 7890 1234`), which the gateway deliberately does not censor. This is policy-consistent behaviour, not a detector miss.
-* **Free-text detection gaps.** Unlabelled street addresses outside India, names, and sensitive attributes in free text remain the main gaps. Quasi recall is low because the gateway intentionally does not flag a name or attribute on its own (README §3a). Closing these gaps needs an NER model, which is listed as future work and was not added, to respect the dependency constraint.
+* **Free-text detection gaps.** Unlabelled street addresses outside India, names, and sensitive attributes in free text remain the main gaps. Quasi recall is low because the gateway intentionally does not flag a name or attribute on its own (docs/TECHNICAL_DETAILS.md §3a). Closing these gaps needs an NER model, which is listed as future work and was not added, to respect the dependency constraint.
 
 ## 4. What changed in the product
 

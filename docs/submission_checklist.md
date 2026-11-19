@@ -24,7 +24,7 @@ git push
 ## Deliverable 2 – Presentation (≤ 7 slides)
 - [ ] Title (project, PS16, team, hackathon) · Problem · Solution · Features · Technical approach · Working output · Plan & future scope
 - [ ] Replace screenshot placeholders with screenshots from **your** running app
-- [ ] Only implemented features claimed (see README §12 for limitations)
+- [ ] Only implemented features claimed (see docs/TECHNICAL_DETAILS.md §12 for limitations)
 
 ## Deliverable 3 – Demo video (4–5 min)
 - [ ] Follows `docs/demo_video_script.md`
