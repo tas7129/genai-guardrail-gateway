@@ -1,0 +1,205 @@
+{
+  "policy_name": "Nimbus Technologies – Generative AI Acceptable Use Policy",
+  "version": "1.0 (synthetic sample for PS16 demo)",
+  "owner": "Information Security & Governance Office",
+  "clauses": [
+    {
+      "id": "AUP-1",
+      "title": "Scope and approved AI tools",
+      "category": "GENERAL",
+      "action": "INFO",
+      "severity": 0,
+      "text": "This policy applies to every employee, contractor and intern who uses generative AI. Company work may only be sent to AI through the Nimbus Guardrail Gateway, which forwards screened prompts to an on-premise local language model. Public cloud chatbots must not be used for company data.",
+      "remediation": "Use the Guardrail Gateway for all AI-assisted work."
+    },
+    {
+      "id": "AUP-2",
+      "title": "Public and non-sensitive information",
+      "category": "PUBLIC",
+      "action": "ALLOW",
+      "severity": 0,
+      "text": "General questions, publicly available information, generic programming help, learning material and drafts that contain no personal data, credentials or confidential business information may be sent to the AI assistant without restriction.",
+      "remediation": "No action required."
+    },
+    {
+      "id": "AUP-3",
+      "title": "Personally identifiable information",
+      "category": "PERSONAL_DATA",
+      "action": "SEVERITY_BASED",
+      "severity": 2,
+      "text": "Personally identifiable information such as Aadhaar, PAN, passport, driving licence and voter ID numbers, social security numbers, biometric identifiers (HIGH), and personal phone numbers, personal email addresses, residential addresses, dates of birth, IP addresses and employee IDs (MEDIUM) must not reach the AI model in identifiable form. HIGH items are redacted automatically; MEDIUM items are shown to the user, who can redact them or send anyway (redacted automatically in strict mode). Public business contacts and documented placeholder values are LOW and are not censored.",
+      "remediation": "Refer to people by role or placeholder (for example 'Customer A') instead of real identifiers."
+    },
+    {
+      "id": "AUP-4",
+      "title": "Bulk customer or employee records",
+      "category": "BULK_PERSONAL_DATA",
+      "action": "MANAGER_APPROVAL",
+      "severity": 3,
+      "text": "Sharing datasets, exports, spreadsheets or lists that contain the personal information of many customers or employees is a bulk processing activity. Even after redaction it requires the documented approval of the requester's line manager before the AI may process it.",
+      "remediation": "Reduce the data to the minimum needed, aggregate it, or obtain manager approval."
+    },
+    {
+      "id": "AUP-5",
+      "title": "Credentials, secrets and access keys",
+      "category": "CREDENTIALS",
+      "action": "SEVERITY_BASED",
+      "severity": 4,
+      "text": "Passwords, API keys, access and refresh tokens, OAuth secrets, SSH and encryption keys, database and cloud credentials, session cookies, OTPs, recovery codes and JWTs are CRITICAL. They are always replaced with a descriptive placeholder such as [PASSWORD REDACTED] before anything is forwarded, and the original value never reaches the model. When safe redaction cannot be guaranteed – a pasted secrets or configuration file, many secrets in one request, or a secret read from an image by OCR – the request is blocked.",
+      "remediation": "Remove the secret, use a placeholder such as <API_KEY>, and rotate the credential immediately because it may already be exposed."
+    },
+    {
+      "id": "AUP-6",
+      "title": "Confidential business information",
+      "category": "CONFIDENTIAL_BUSINESS",
+      "action": "MANAGER_APPROVAL",
+      "severity": 3,
+      "text": "Information marked confidential, internal-only or under NDA, trade secrets, internal memos and documents, customer databases, employee records, confidential contracts, internal financial reports, unreleased financial results, revenue forecasts, pricing and business strategy, merger and acquisition plans, board materials, confidential meeting transcripts, restructuring or layoff plans and internal project codenames are confidential business information. Because the sensitive part is the content itself, it can only be processed after the requester's manager approves the specific request; any identifiers inside are still redacted.",
+      "remediation": "Remove confidential details or request manager approval with a business justification."
+    },
+    {
+      "id": "AUP-7",
+      "title": "Intellectual property, source code and unpublished work",
+      "category": "SOURCE_CODE",
+      "action": "MANAGER_APPROVAL",
+      "severity": 3,
+      "text": "Proprietary source code and algorithms, unpublished research and manuscripts, unpublished patents and invention disclosures, proprietary datasets and model weights, confidential designs and licensed proprietary documents are company intellectual property. Short generic snippets for learning are allowed; larger proprietary material requires manager approval. Code that contains embedded secrets is governed by the credentials clause.",
+      "remediation": "Share a minimal, generic reproduction of the problem instead of the proprietary code, or request approval."
+    },
+    {
+      "id": "AUP-8",
+      "title": "Redaction requirements",
+      "category": "REDACTION",
+      "action": "INFO",
+      "severity": 0,
+      "text": "When the gateway censors content, only the sensitive span is replaced, with a descriptive placeholder such as [EMAIL REDACTED], [AADHAAR NUMBER REDACTED] or [API KEY REDACTED]; several different values of the same kind are numbered ([EMAIL 1 REDACTED], [EMAIL 2 REDACTED]) and repeated values always get the same placeholder. Only the censored prompt is forwarded. The user is shown what was detected, its severity, confidence and detection method, what was redacted and the censored prompt; original values are never shown in full, logged or stored, and the model must not try to reconstruct them.",
+      "remediation": "Review the sanitized prompt shown by the gateway."
+    },
+    {
+      "id": "AUP-9",
+      "title": "Manager approval procedure",
+      "category": "APPROVAL",
+      "action": "INFO",
+      "severity": 0,
+      "text": "Requests that need approval are held by the gateway in an encrypted vault and are not forwarded while approval is pending. Only the requester's assigned line manager may approve or reject. Approval releases that single request to the model; rejection permanently discards the held content. Personal identifiers stay redacted even after approval.",
+      "remediation": "Wait for your manager's decision; you will see the outcome in the chat."
+    },
+    {
+      "id": "AUP-10",
+      "title": "Attachments and images",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "BLOCK",
+      "severity": 4,
+      "text": "Every attachment must be inspected before use. Text is extracted from documents, and optical character recognition is applied to images and screenshots. Only the screened text is forwarded; image pixels are never sent to the model. Attachments that cannot be scanned, such as unsupported, corrupted, encrypted or oversized files, are blocked (fail closed).",
+      "remediation": "Attach a supported file type (txt, md, csv, json, code, pdf with text, docx, png, jpg) or paste the relevant text."
+    },
+    {
+      "id": "AUP-11",
+      "title": "Audit logging and monitoring",
+      "category": "AUDIT",
+      "action": "INFO",
+      "severity": 0,
+      "text": "Every AI request and every gateway decision is logged with a request ID, timestamp, user, decision, risk level, detected categories, policy clause references and approval status. Audit logs must never contain raw passwords, keys or unredacted confidential content. Governance staff review usage trends and violations.",
+      "remediation": "No action required."
+    },
+    {
+      "id": "AUP-12",
+      "title": "Harmful, violent or illegal use",
+      "category": "HARMFUL_CONTENT",
+      "action": "BLOCK",
+      "severity": 4,
+      "text": "Company AI tools must never be used to plan or seek help with violence against people or property, weapons or explosives, illegal drug production, self-harm, sexual content, the sexual exploitation of children, hate, hacking into other people's accounts, malware, fraud or other illegal activity. Every request is checked by built-in rules and by a local content-safety model (Llama Guard) before it can reach the assistant. Such requests are blocked outright, cannot be approved by a manager, and are logged for review by the governance team.",
+      "remediation": "Do not use company AI for this purpose. If you are worried about your own or someone else's safety, contact your manager, HR or local emergency services. If you are struggling, the Employee Assistance Programme or Tele-MANAS (14416 in India) can help."
+    },
+    {
+      "id": "AUP-13",
+      "title": "Financial information",
+      "category": "FINANCIAL_DATA",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "CVV and PIN numbers, bank login credentials and crypto wallet keys or seed phrases are CRITICAL and always censored. Bank account and card numbers are HIGH and redacted automatically. UPI IDs, salary and compensation, tax records, insurance policy numbers and transaction records are MEDIUM and require user review before they are sent.",
+      "remediation": "Use masked values (e.g. XXXX-1234) or describe the financial situation without account identifiers."
+    },
+    {
+      "id": "AUP-14",
+      "title": "Medical and health information",
+      "category": "MEDICAL_DATA",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "Medical diagnoses, medical history, prescriptions, test reports, patient records, mental health, genetic, reproductive health and disability information about an identifiable person are HIGH and are redacted automatically. General discussion of medical conditions that is not tied to a person is allowed.",
+      "remediation": "Ask about the condition in general terms without linking it to a named or identifiable person."
+    },
+    {
+      "id": "AUP-15",
+      "title": "Legal and government information",
+      "category": "LEGAL_GOVERNMENT",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "Court and FIR case numbers and immigration or visa details are HIGH and redacted automatically. Privileged, sealed or classified material, criminal investigation records, confidential government correspondence and non-public legal proceedings are sensitive as a whole and need manager approval.",
+      "remediation": "Remove case identifiers and privileged material, or request approval from your manager and the legal team."
+    },
+    {
+      "id": "AUP-16",
+      "title": "Location and tracking information",
+      "category": "LOCATION_DATA",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "Live GPS coordinates, live location links and addresses given as someone's current location are HIGH and redacted automatically. Travel booking references and vehicle registration numbers are MEDIUM and require user review. Home and workplace addresses are covered by the personal information clause.",
+      "remediation": "Describe locations at city level instead of sharing coordinates, live links or exact addresses."
+    },
+    {
+      "id": "AUP-17",
+      "title": "Private communications",
+      "category": "PRIVATE_COMMUNICATIONS",
+      "action": "SEVERITY_BASED",
+      "severity": 2,
+      "text": "Pasted private emails, chat conversations, direct messages and personal contact lists reveal third parties. Participant names, senders, recipients and contact entries are MEDIUM and require user review. Recordings and photographs are never forwarded: only screened text is sent, and unsupported audio files are blocked.",
+      "remediation": "Summarise the conversation in your own words without names or contact details."
+    },
+    {
+      "id": "AUP-18",
+      "title": "Sensitive personal attributes",
+      "category": "SENSITIVE_ATTRIBUTES",
+      "action": "SEVERITY_BASED",
+      "severity": 2,
+      "text": "A person's religious beliefs, caste, political affiliation, race or ethnicity, sexual orientation, gender identity or trade union membership are MEDIUM and require user review before they are sent. General discussion of these topics that is not about a specific person is allowed.",
+      "remediation": "Leave out personal attributes that are not essential to the task."
+    },
+    {
+      "id": "AUP-19",
+      "title": "Children's information",
+      "category": "CHILDREN_DATA",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "When a request concerns a minor, the child's name, contact details, address, school records, photographs, medical information, live location and communications are treated as children's information with at least HIGH severity and are redacted automatically.",
+      "remediation": "Refer to the child generically (e.g. 'my child, aged 9') without identifying details."
+    },
+    {
+      "id": "AUP-20",
+      "title": "Cybersecurity and technical secrets",
+      "category": "SECURITY_TECHNICAL",
+      "action": "SEVERITY_BASED",
+      "severity": 3,
+      "text": "Internal hostnames and internal IP addresses are HIGH and redacted automatically; server credentials and database connection strings are governed by the credentials clause. Undisclosed vulnerabilities, penetration-testing findings, firewall and VPN configurations and security architecture documents are sensitive as a whole and need manager approval.",
+      "remediation": "Describe the technical problem with generic hostnames (e.g. db.example.internal) and without unpublished vulnerability details."
+    },
+    {
+      "id": "AUP-21",
+      "title": "Severity levels and censorship actions",
+      "category": "SEVERITY",
+      "action": "INFO",
+      "severity": 0,
+      "text": "Every detected item receives a severity: CRITICAL (always censored; blocked if safe redaction is impossible), HIGH (redacted automatically with a category-specific placeholder), MEDIUM (user warned and can redact or send anyway; redacted automatically in strict mode) or LOW (not censored, noted only). Context is considered: documented example values, public business contacts and generic addresses are LOW, while a user's claim that real-looking data is fictional is not accepted on its own. Severity thresholds are configurable by the governance team.",
+      "remediation": "Review the detection table shown by the gateway."
+    },
+    {
+      "id": "AUP-22",
+      "title": "Mandatory content-safety check (fail closed)",
+      "category": "SAFETY_CHECK",
+      "action": "BLOCK",
+      "severity": 4,
+      "text": "Every request – prompt and extracted attachment text – must be classified by the local content-safety model before it may reach the AI assistant. If the safety model is not installed, not reachable, times out or returns an unreadable verdict, the request is blocked. This control cannot be relaxed by managers.",
+      "remediation": "Ask IT to start Ollama and install the safety model (ollama pull llama-guard3:1b), then send the message again."
+    }
+  ]
+}

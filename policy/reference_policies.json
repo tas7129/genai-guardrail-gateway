@@ -1,0 +1,504 @@
+{
+  "policy_name": "Organisation AI policy pack (reference)",
+  "version": 1,
+  "source": "AI_GuardRail_Datasets.zip / 05_Sample_Policies (6 files)",
+  "note": "Reference clauses only (action REFERENCE): they are retrieved and shown next to the governing AUP clause but never decide an outcome. The pack itself states it supplements, and does not override, the gateway's technical rules (GOV-7).",
+  "clauses": [
+    {
+      "id": "DPP-1",
+      "title": "Customer personal and financial details",
+      "category": "PERSONAL_DATA",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Employees must not share customer names, phone numbers, email addresses, home addresses, or financial information with external AI tools.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Data Privacy Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/01_Data_Privacy_Policy.txt",
+      "source_ref": "clause 1",
+      "maps_to": [
+        "AUP-3",
+        "AUP-13"
+      ],
+      "consistency": "consistent",
+      "consistency_note": "Identifiers are redacted or held before anything reaches the model."
+    },
+    {
+      "id": "DPP-2",
+      "title": "Redact personal information before forwarding",
+      "category": "PERSONAL_DATA",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Personal information must be redacted before an AI prompt is forwarded.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Data Privacy Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/01_Data_Privacy_Policy.txt",
+      "source_ref": "clause 2",
+      "maps_to": [
+        "AUP-3",
+        "AUP-8"
+      ],
+      "consistency": "partial",
+      "consistency_note": "HIGH identifiers are always redacted. MEDIUM items can be sent unredacted by the user's choice unless strict mode is on; strict mode makes the gateway follow this clause literally."
+    },
+    {
+      "id": "DPP-3",
+      "title": "Block when safe redaction is impossible",
+      "category": "PERSONAL_DATA",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Requests containing sensitive customer information must be blocked if the information cannot be safely redacted.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Data Privacy Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/01_Data_Privacy_Policy.txt",
+      "source_ref": "clause 3",
+      "maps_to": [
+        "AUP-4",
+        "AUP-5"
+      ],
+      "consistency": "partial",
+      "consistency_note": "The gateway blocks when a secret cannot be safely redacted and holds bulk personal records for manager approval instead of blocking them."
+    },
+    {
+      "id": "DPP-4",
+      "title": "Only anonymised customer data for analysis",
+      "category": "BULK_PERSONAL_DATA",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Only anonymized customer data may be used for AI analysis.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Data Privacy Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/01_Data_Privacy_Policy.txt",
+      "source_ref": "clause 4",
+      "maps_to": [
+        "AUP-4"
+      ],
+      "consistency": "partial",
+      "consistency_note": "Bulk customer records are held for manager approval; identifiers stay redacted after approval."
+    },
+    {
+      "id": "SCP-1",
+      "title": "Proprietary source code needs authorisation",
+      "category": "SOURCE_CODE",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Proprietary company source code must not be shared with external AI tools without authorization.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Source Code and Intellectual Property Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/02_Source_Code_Policy.txt",
+      "source_ref": "clause 1",
+      "maps_to": [
+        "AUP-7"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "SCP-2",
+      "title": "Algorithms, designs and technical documents are protected",
+      "category": "SOURCE_CODE",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Internal algorithms, unreleased product designs, and confidential technical documentation are protected.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Source Code and Intellectual Property Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/02_Source_Code_Policy.txt",
+      "source_ref": "clause 2",
+      "maps_to": [
+        "AUP-7",
+        "AUP-6"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "SCP-3",
+      "title": "Proprietary code is flagged for manager approval",
+      "category": "SOURCE_CODE",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Requests containing proprietary code must be flagged for manager approval.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Source Code and Intellectual Property Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/02_Source_Code_Policy.txt",
+      "source_ref": "clause 3",
+      "maps_to": [
+        "AUP-7"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "SCP-4",
+      "title": "Public code may be shared subject to its licence",
+      "category": "SOURCE_CODE",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Publicly available code may be shared subject to its license.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Source Code and Intellectual Property Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/02_Source_Code_Policy.txt",
+      "source_ref": "clause 4",
+      "maps_to": [
+        "AUP-7"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "CRP-1",
+      "title": "Credentials must never be shared with AI tools",
+      "category": "CREDENTIALS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "API keys, passwords, access tokens, private keys, and database credentials must never be shared with AI tools.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Credentials and Secrets Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/03_Credentials_Policy.txt",
+      "source_ref": "clause 1",
+      "maps_to": [
+        "AUP-5"
+      ],
+      "consistency": "consistent",
+      "consistency_note": "Credential values are always replaced before forwarding and never reach the model."
+    },
+    {
+      "id": "CRP-2",
+      "title": "Prompts containing active credentials are blocked",
+      "category": "CREDENTIALS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Any prompt containing active credentials must be blocked.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Credentials and Secrets Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/03_Credentials_Policy.txt",
+      "source_ref": "clause 2",
+      "maps_to": [
+        "AUP-5"
+      ],
+      "consistency": "conflict",
+      "consistency_note": "The gateway's severity policy (AUP-5) replaces credentials with placeholders and forwards the rest of the prompt; it blocks only when safe redaction is impossible. An admin can set AUP-5 to BLOCK to follow this clause literally."
+    },
+    {
+      "id": "CRP-3",
+      "title": "Detected credentials are not forwarded",
+      "category": "CREDENTIALS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Detected credentials must not be forwarded to the AI model.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Credentials and Secrets Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/03_Credentials_Policy.txt",
+      "source_ref": "clause 3",
+      "maps_to": [
+        "AUP-5",
+        "AUP-8"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "CRP-4",
+      "title": "Rotate exposed credentials",
+      "category": "CREDENTIALS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Employees must rotate credentials if they accidentally expose them.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Credentials and Secrets Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/03_Credentials_Policy.txt",
+      "source_ref": "clause 4",
+      "maps_to": [
+        "AUP-5"
+      ],
+      "consistency": "advisory",
+      "consistency_note": "A procedural duty for the employee; the gateway shows it as remediation advice."
+    },
+    {
+      "id": "CIP-1",
+      "title": "Internal financials, strategy and plans need authorisation",
+      "category": "CONFIDENTIAL_BUSINESS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Internal financial reports, business strategies, unreleased product plans, and confidential company documents must not be shared with external AI tools without authorization.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Confidential Business Information Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/04_Confidential_Information_Policy.txt",
+      "source_ref": "clause 1",
+      "maps_to": [
+        "AUP-6"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "CIP-2",
+      "title": "Confidential requests require manager approval",
+      "category": "CONFIDENTIAL_BUSINESS",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Such requests require manager approval.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Confidential Business Information Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/04_Confidential_Information_Policy.txt",
+      "source_ref": "clause 2",
+      "maps_to": [
+        "AUP-6",
+        "AUP-9"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "CIP-3",
+      "title": "Public company information may be used freely",
+      "category": "PUBLIC",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Public company information may be used freely.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Confidential Business Information Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/04_Confidential_Information_Policy.txt",
+      "source_ref": "clause 3",
+      "maps_to": [
+        "AUP-2"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "CIP-4",
+      "title": "Confidential attachments are scanned first",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Confidential attachments must be scanned before being forwarded to an AI model.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Confidential Business Information Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/04_Confidential_Information_Policy.txt",
+      "source_ref": "clause 4",
+      "maps_to": [
+        "AUP-10"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "IAP-1",
+      "title": "Scan every image and document",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "All uploaded images and documents must be scanned before being sent to an AI model.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Image and Attachment Security Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/05_Image_and_Attachment_Policy.txt",
+      "source_ref": "clause 1",
+      "maps_to": [
+        "AUP-10"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "IAP-2",
+      "title": "Extract image text with OCR",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Text inside images must be extracted using OCR.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Image and Attachment Security Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/05_Image_and_Attachment_Policy.txt",
+      "source_ref": "clause 2",
+      "maps_to": [
+        "AUP-10"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "IAP-3",
+      "title": "Check extracted text for sensitive data",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Extracted text must be checked for personal information, credentials, source code, and confidential business data.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Image and Attachment Security Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/05_Image_and_Attachment_Policy.txt",
+      "source_ref": "clause 3",
+      "maps_to": [
+        "AUP-10",
+        "AUP-3",
+        "AUP-5"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "IAP-4",
+      "title": "Block or redact prohibited attachments",
+      "category": "UNSCANNABLE_ATTACHMENT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Attachments containing prohibited information must be blocked or redacted according to company policy.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "Image and Attachment Security Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/05_Image_and_Attachment_Policy.txt",
+      "source_ref": "clause 4",
+      "maps_to": [
+        "AUP-10",
+        "AUP-8"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-1",
+      "title": "Purpose",
+      "category": "GENERAL",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "This policy establishes guidelines for the responsible use of generative AI tools within the organization.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 1",
+      "maps_to": [
+        "AUP-1"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-2",
+      "title": "Employee responsibilities",
+      "category": "GENERAL",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Employees must use only organization-approved AI tools. Employees must verify that information is permitted for AI processing before submission. Employees must not attempt to bypass security screening or censorship mechanisms. Employees must follow the organization's data protection and confidentiality requirements.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 2",
+      "maps_to": [
+        "AUP-1"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-3",
+      "title": "Manager approval",
+      "category": "APPROVAL",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Requests requiring authorization must be held until approval is received. Only authorized managers may approve requests involving confidential company information. Approval must be associated with the relevant request and recorded in the audit system. A request must not reach the LLM while approval is pending.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 3",
+      "maps_to": [
+        "AUP-9"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-4",
+      "title": "Audit and monitoring",
+      "category": "AUDIT",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Record screening decisions, detected categories, severity levels, actions taken, and timestamps. Do not store original sensitive values in audit logs. Maintain records of blocked requests, redaction decisions, and approval outcomes. Restrict access to audit records to authorized personnel.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 4",
+      "maps_to": [
+        "AUP-11"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-5",
+      "title": "Exceptions: public information and fictional examples",
+      "category": "PUBLIC",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Publicly available information may be used where permitted. Fictional examples and test data may be used when they do not expose actual sensitive information. Approved exceptions must be documented and must not bypass mandatory security protections.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 5",
+      "maps_to": [
+        "AUP-2",
+        "AUP-21"
+      ],
+      "consistency": "consistent",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-6",
+      "title": "Enforcement",
+      "category": "GENERAL",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "Violations of this policy may result in restricted AI access or further organizational action.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 6",
+      "maps_to": [
+        "AUP-1"
+      ],
+      "consistency": "advisory",
+      "consistency_note": ""
+    },
+    {
+      "id": "GOV-7",
+      "title": "Relationship to the gateway's technical rules",
+      "category": "GENERAL",
+      "action": "REFERENCE",
+      "severity": 0,
+      "text": "This policy supplements the application's technical detection, classification, and censorship rules. It does not replace or override them.",
+      "remediation": "",
+      "kind": "reference",
+      "policy": "AI Usage Governance Policy",
+      "source": "AI_GuardRail_Datasets/05_Sample_Policies/06_AI_Usage_Governance_Policy.txt",
+      "source_ref": "section 7",
+      "maps_to": [
+        "AUP-21"
+      ],
+      "consistency": "consistent",
+      "consistency_note": "States that the policy pack supplements and does not override the gateway's detection, classification and censorship rules."
+    }
+  ]
+}

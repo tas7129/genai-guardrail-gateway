@@ -1,0 +1,390 @@
+{
+  "dataset": "CredDetX v0.1",
+  "split": "test",
+  "gold_policy": "strict",
+  "strict_mode": false,
+  "texts": 2425,
+  "gold_spans": 3213,
+  "seconds": 17.4,
+  "texts_changed_by_normalisation": 117,
+  "detection": {
+    "recall_any_censoring_finding": 0.494,
+    "recall_credential_type_finding": 0.49,
+    "precision_credential_findings_capped5": 0.636,
+    "f1": 0.556,
+    "negatives_hit": 0.113,
+    "no_secret_texts_flagged": 0.34,
+    "recall_by_label": {
+      "ACCESS_TOKEN": [
+        281,
+        405,
+        69.4
+      ],
+      "API_KEY": [
+        189,
+        296,
+        63.9
+      ],
+      "CERTIFICATE_SECRET": [
+        2,
+        130,
+        1.5
+      ],
+      "CLOUD_CREDENTIAL": [
+        43,
+        125,
+        34.4
+      ],
+      "DATABASE_CREDENTIAL": [
+        176,
+        262,
+        67.2
+      ],
+      "ENCRYPTION_KEY": [
+        66,
+        139,
+        47.5
+      ],
+      "GENERIC_SECRET": [
+        44,
+        215,
+        20.5
+      ],
+      "JWT_TOKEN": [
+        168,
+        168,
+        100.0
+      ],
+      "PASSWORD": [
+        304,
+        922,
+        33.0
+      ],
+      "PRIVATE_KEY": [
+        260,
+        263,
+        98.9
+      ],
+      "SESSION_SECRET": [
+        36,
+        125,
+        28.8
+      ],
+      "WEBHOOK_SECRET": [
+        17,
+        163,
+        10.4
+      ]
+    },
+    "recall_by_slice": {
+      "basic_auth": [
+        0,
+        146,
+        0.0
+      ],
+      "cert_bundle": [
+        2,
+        130,
+        1.5
+      ],
+      "cloud_secret": [
+        43,
+        125,
+        34.4
+      ],
+      "db_password_context": [
+        78,
+        127,
+        61.4
+      ],
+      "db_uri": [
+        96,
+        133,
+        72.2
+      ],
+      "encryption_key": [
+        66,
+        139,
+        47.5
+      ],
+      "generic_secret": [
+        39,
+        137,
+        28.5
+      ],
+      "jwt": [
+        168,
+        168,
+        100.0
+      ],
+      "long_context": [
+        44,
+        87,
+        50.6
+      ],
+      "malformed_jwt": [
+        104,
+        141,
+        73.8
+      ],
+      "masked_visible": [
+        32,
+        155,
+        20.6
+      ],
+      "no_prefix_keyword": [
+        115,
+        146,
+        78.8
+      ],
+      "no_prefix_no_keyword": [
+        0,
+        74,
+        0.0
+      ],
+      "other": [
+        0,
+        5,
+        0.0
+      ],
+      "passphrase": [
+        62,
+        155,
+        40.0
+      ],
+      "pem_private_key": [
+        131,
+        133,
+        98.5
+      ],
+      "provider_prefix": [
+        106,
+        150,
+        70.7
+      ],
+      "repeated_value": [
+        386,
+        818,
+        47.2
+      ],
+      "service_account_json": [
+        129,
+        130,
+        99.2
+      ],
+      "session_secret": [
+        42,
+        134,
+        31.3
+      ],
+      "short_password": [
+        52,
+        154,
+        33.8
+      ],
+      "strong_password": [
+        63,
+        152,
+        41.4
+      ],
+      "test_value_realistic": [
+        121,
+        140,
+        86.4
+      ],
+      "url_password": [
+        77,
+        137,
+        56.2
+      ],
+      "webhook_secret": [
+        14,
+        147,
+        9.5
+      ],
+      "word_digit_password": [
+        77,
+        225,
+        34.2
+      ]
+    },
+    "recall_by_context": {
+      "chat": [
+        167,
+        365,
+        45.8
+      ],
+      "config": [
+        400,
+        763,
+        52.4
+      ],
+      "document": [
+        202,
+        388,
+        52.1
+      ],
+      "log": [
+        304,
+        594,
+        51.2
+      ],
+      "source_code": [
+        308,
+        645,
+        47.8
+      ],
+      "ticket": [
+        205,
+        458,
+        44.8
+      ]
+    },
+    "negatives_hit_by_kind": {
+      "aws_key_id": [
+        424,
+        424,
+        100.0
+      ],
+      "azure_client_id": [
+        0,
+        44,
+        0.0
+      ],
+      "azure_tenant": [
+        0,
+        43,
+        0.0
+      ],
+      "code_expression": [
+        31,
+        402,
+        7.7
+      ],
+      "data_uri": [
+        0,
+        367,
+        0.0
+      ],
+      "encoded_noncredential": [
+        9,
+        416,
+        2.2
+      ],
+      "env_reference": [
+        38,
+        476,
+        8.0
+      ],
+      "gcp_client_id": [
+        0,
+        127,
+        0.0
+      ],
+      "hash_digest": [
+        6,
+        390,
+        1.5
+      ],
+      "identifier": [
+        120,
+        385,
+        31.2
+      ],
+      "inline_source_map": [
+        0,
+        94,
+        0.0
+      ],
+      "log_repeated_ids": [
+        6,
+        1049,
+        0.6
+      ],
+      "masked": [
+        0,
+        350,
+        0.0
+      ],
+      "minified_bundle": [
+        0,
+        93,
+        0.0
+      ],
+      "obviously_fake": [
+        84,
+        370,
+        22.7
+      ],
+      "placeholder": [
+        2,
+        378,
+        0.5
+      ],
+      "private_key_id": [
+        90,
+        127,
+        70.9
+      ],
+      "public_material": [
+        0,
+        353,
+        0.0
+      ],
+      "truncated_key_header": [
+        0,
+        363,
+        0.0
+      ],
+      "url_no_credentials": [
+        1,
+        386,
+        0.3
+      ],
+      "uuid_identifier": [
+        1,
+        539,
+        0.2
+      ]
+    }
+  },
+  "outcome": {
+    "decisions_all_texts": {
+      "BLOCK": 813,
+      "REDACT_AND_ALLOW": 669,
+      "ALLOW": 521,
+      "MANAGER_APPROVAL": 311,
+      "USER_REVIEW": 111
+    },
+    "decisions_no_secret_texts": {
+      "ALLOW": 153,
+      "REDACT_AND_ALLOW": 89,
+      "MANAGER_APPROVAL": 63,
+      "BLOCK": 61,
+      "USER_REVIEW": 8
+    },
+    "secret_spans_by_outcome": {
+      "strict": {
+        "held": 1637,
+        "protected": 565,
+        "exposed": 990,
+        "partial": 21
+      },
+      "send_anyway": {
+        "held": 1637,
+        "protected": 565,
+        "exposed": 991,
+        "partial": 20
+      },
+      "approved": {
+        "held": 1252,
+        "exposed": 1242,
+        "protected": 694,
+        "partial": 25
+      }
+    },
+    "texts_with_secret": 2051,
+    "texts_with_any_secret_exposed_strict": 751,
+    "texts_with_any_secret_exposed_pct": 36.6
+  }
+}

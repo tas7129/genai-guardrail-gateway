@@ -1,0 +1,659 @@
+{
+  "dataset": "NVIDIA Nemotron-PII",
+  "split": "dev",
+  "strict_mode": false,
+  "documents": 2000,
+  "seconds": 5.1,
+  "tiers": {
+    "core": {
+      "spans": 4269,
+      "detected": 3497,
+      "recall_pct": 81.9,
+      "outcome_strict": {
+        "protected": 3049,
+        "held": 460,
+        "exposed": 715,
+        "partial": 45
+      },
+      "outcome_send_anyway": {
+        "protected": 1109,
+        "exposed": 2678,
+        "held": 460,
+        "partial": 22
+      },
+      "outcome_after_approval": {
+        "protected": 3356,
+        "exposed": 769,
+        "partial": 59,
+        "held": 85
+      }
+    },
+    "quasi": {
+      "spans": 3778,
+      "detected": 455,
+      "recall_pct": 12.0,
+      "outcome_strict": {
+        "exposed": 3044,
+        "protected": 381,
+        "held": 352,
+        "partial": 1
+      },
+      "outcome_send_anyway": {
+        "exposed": 3385,
+        "protected": 41,
+        "held": 352
+      },
+      "outcome_after_approval": {
+        "exposed": 3290,
+        "protected": 435,
+        "held": 52,
+        "partial": 1
+      }
+    },
+    "out": {
+      "spans": 8139,
+      "detected": 218,
+      "recall_pct": 2.7,
+      "outcome_strict": {
+        "exposed": 7357,
+        "partial": 77,
+        "held": 582,
+        "protected": 123
+      },
+      "outcome_send_anyway": {
+        "exposed": 7458,
+        "partial": 75,
+        "held": 582,
+        "protected": 24
+      },
+      "outcome_after_approval": {
+        "exposed": 7819,
+        "partial": 83,
+        "protected": 130,
+        "held": 107
+      }
+    }
+  },
+  "documents_with_core_pii": 1783,
+  "documents_with_core_pii_exposed": 602,
+  "documents_with_core_pii_exposed_pct": 33.8,
+  "decisions": {
+    "USER_REVIEW": 1277,
+    "REDACT_AND_ALLOW": 306,
+    "ALLOW": 274,
+    "MANAGER_APPROVAL": 121,
+    "BLOCK": 22
+  },
+  "decisions_by_locale": {
+    "us": {
+      "USER_REVIEW": 595,
+      "MANAGER_APPROVAL": 63,
+      "REDACT_AND_ALLOW": 188,
+      "ALLOW": 147,
+      "BLOCK": 7
+    },
+    "intl": {
+      "USER_REVIEW": 682,
+      "ALLOW": 127,
+      "MANAGER_APPROVAL": 58,
+      "REDACT_AND_ALLOW": 118,
+      "BLOCK": 15
+    }
+  },
+  "per_label": {
+    "account_number": {
+      "tier": "core",
+      "n": 201,
+      "detected": 163,
+      "protected": 156,
+      "held": 11,
+      "detected_low": 28,
+      "exposed": 34,
+      "recall_pct": 81.1
+    },
+    "api_key": {
+      "tier": "core",
+      "n": 108,
+      "detected": 70,
+      "held": 38,
+      "protected": 45,
+      "exposed": 25,
+      "recall_pct": 64.8
+    },
+    "biometric_identifier": {
+      "tier": "core",
+      "n": 246,
+      "detected": 207,
+      "protected": 175,
+      "exposed": 36,
+      "held": 26,
+      "partial": 9,
+      "recall_pct": 84.1
+    },
+    "coordinate": {
+      "tier": "core",
+      "n": 152,
+      "detected": 89,
+      "exposed": 62,
+      "partial": 13,
+      "protected": 73,
+      "held": 4,
+      "recall_pct": 58.6
+    },
+    "credit_debit_card": {
+      "tier": "core",
+      "n": 193,
+      "detected": 118,
+      "protected": 105,
+      "detected_low": 58,
+      "exposed": 72,
+      "held": 16,
+      "recall_pct": 61.1
+    },
+    "cvv": {
+      "tier": "core",
+      "n": 82,
+      "detected": 69,
+      "protected": 60,
+      "exposed": 12,
+      "held": 10,
+      "recall_pct": 84.1
+    },
+    "date_of_birth": {
+      "tier": "core",
+      "n": 248,
+      "detected": 242,
+      "protected": 209,
+      "held": 34,
+      "exposed": 5,
+      "recall_pct": 97.6
+    },
+    "email": {
+      "tier": "core",
+      "n": 981,
+      "detected": 963,
+      "protected": 872,
+      "held": 92,
+      "detected_low": 14,
+      "exposed": 17,
+      "recall_pct": 98.2
+    },
+    "employee_id": {
+      "tier": "core",
+      "n": 247,
+      "detected": 155,
+      "protected": 125,
+      "exposed": 88,
+      "held": 34,
+      "recall_pct": 62.8
+    },
+    "fax_number": {
+      "tier": "core",
+      "n": 134,
+      "detected": 127,
+      "protected": 119,
+      "exposed": 7,
+      "partial": 1,
+      "detected_low": 1,
+      "held": 7,
+      "recall_pct": 94.8
+    },
+    "health_plan_beneficiary_number": {
+      "tier": "core",
+      "n": 133,
+      "detected": 121,
+      "exposed": 12,
+      "protected": 111,
+      "held": 9,
+      "detected_low": 1,
+      "partial": 1,
+      "recall_pct": 91.0
+    },
+    "http_cookie": {
+      "tier": "core",
+      "n": 113,
+      "detected": 71,
+      "protected": 53,
+      "exposed": 38,
+      "held": 15,
+      "partial": 7,
+      "detected_low": 8,
+      "recall_pct": 62.8
+    },
+    "medical_record_number": {
+      "tier": "core",
+      "n": 135,
+      "detected": 131,
+      "protected": 122,
+      "held": 8,
+      "partial": 1,
+      "detected_low": 1,
+      "exposed": 4,
+      "recall_pct": 97.0
+    },
+    "national_id": {
+      "tier": "core",
+      "n": 55,
+      "detected": 52,
+      "protected": 48,
+      "held": 4,
+      "detected_low": 1,
+      "exposed": 3,
+      "recall_pct": 94.5
+    },
+    "password": {
+      "tier": "core",
+      "n": 155,
+      "detected": 102,
+      "exposed": 45,
+      "protected": 81,
+      "held": 29,
+      "detected_low": 2,
+      "recall_pct": 65.8
+    },
+    "phone_number": {
+      "tier": "core",
+      "n": 466,
+      "detected": 442,
+      "protected": 398,
+      "held": 44,
+      "detected_low": 9,
+      "exposed": 24,
+      "recall_pct": 94.8
+    },
+    "pin": {
+      "tier": "core",
+      "n": 148,
+      "detected": 103,
+      "exposed": 43,
+      "protected": 91,
+      "held": 14,
+      "recall_pct": 69.6
+    },
+    "ssn": {
+      "tier": "core",
+      "n": 100,
+      "detected": 98,
+      "protected": 75,
+      "held": 23,
+      "exposed": 2,
+      "detected_low": 1,
+      "recall_pct": 98.0
+    },
+    "street_address": {
+      "tier": "core",
+      "n": 321,
+      "detected": 142,
+      "detected_low": 17,
+      "exposed": 168,
+      "partial": 12,
+      "protected": 105,
+      "held": 36,
+      "recall_pct": 44.2
+    },
+    "tax_id": {
+      "tier": "core",
+      "n": 51,
+      "detected": 32,
+      "protected": 26,
+      "held": 6,
+      "detected_low": 14,
+      "exposed": 18,
+      "partial": 1,
+      "recall_pct": 62.7
+    },
+    "age": {
+      "tier": "out",
+      "n": 79,
+      "detected": 1,
+      "exposed": 71,
+      "held": 7,
+      "protected": 1,
+      "recall_pct": 1.3
+    },
+    "city": {
+      "tier": "out",
+      "n": 371,
+      "detected": 26,
+      "exposed": 329,
+      "protected": 24,
+      "held": 18,
+      "detected_low": 6,
+      "recall_pct": 7.0
+    },
+    "company_name": {
+      "tier": "out",
+      "n": 1756,
+      "detected": 5,
+      "exposed": 1596,
+      "held": 156,
+      "protected": 4,
+      "recall_pct": 0.3
+    },
+    "country": {
+      "tier": "out",
+      "n": 526,
+      "detected": 14,
+      "exposed": 479,
+      "held": 33,
+      "protected": 14,
+      "detected_low": 2,
+      "recall_pct": 2.7
+    },
+    "county": {
+      "tier": "out",
+      "n": 113,
+      "detected": 1,
+      "exposed": 104,
+      "held": 8,
+      "protected": 1,
+      "recall_pct": 0.9
+    },
+    "date": {
+      "tier": "out",
+      "n": 1535,
+      "detected": 13,
+      "exposed": 1410,
+      "held": 115,
+      "protected": 10,
+      "recall_pct": 0.8
+    },
+    "date_time": {
+      "tier": "out",
+      "n": 268,
+      "detected": 1,
+      "exposed": 254,
+      "held": 13,
+      "protected": 1,
+      "recall_pct": 0.4
+    },
+    "device_identifier": {
+      "tier": "out",
+      "n": 89,
+      "detected": 7,
+      "exposed": 76,
+      "protected": 7,
+      "held": 6,
+      "recall_pct": 7.9
+    },
+    "education_level": {
+      "tier": "out",
+      "n": 192,
+      "detected": 0,
+      "exposed": 182,
+      "held": 10,
+      "recall_pct": 0.0
+    },
+    "employment_status": {
+      "tier": "out",
+      "n": 171,
+      "detected": 1,
+      "exposed": 157,
+      "held": 14,
+      "recall_pct": 0.6
+    },
+    "gender": {
+      "tier": "out",
+      "n": 105,
+      "detected": 3,
+      "exposed": 90,
+      "held": 12,
+      "protected": 3,
+      "recall_pct": 2.9
+    },
+    "language": {
+      "tier": "out",
+      "n": 125,
+      "detected": 1,
+      "exposed": 121,
+      "held": 3,
+      "protected": 1,
+      "recall_pct": 0.8
+    },
+    "mac_address": {
+      "tier": "out",
+      "n": 109,
+      "detected": 17,
+      "exposed": 84,
+      "protected": 17,
+      "held": 8,
+      "recall_pct": 15.6
+    },
+    "occupation": {
+      "tier": "out",
+      "n": 650,
+      "detected": 2,
+      "exposed": 592,
+      "held": 56,
+      "protected": 2,
+      "recall_pct": 0.3
+    },
+    "postcode": {
+      "tier": "out",
+      "n": 140,
+      "detected": 11,
+      "exposed": 124,
+      "protected": 10,
+      "detected_low": 1,
+      "held": 6,
+      "recall_pct": 7.9
+    },
+    "state": {
+      "tier": "out",
+      "n": 338,
+      "detected": 21,
+      "exposed": 300,
+      "partial": 1,
+      "held": 18,
+      "protected": 19,
+      "detected_low": 3,
+      "recall_pct": 6.2
+    },
+    "swift_bic": {
+      "tier": "out",
+      "n": 113,
+      "detected": 0,
+      "exposed": 109,
+      "held": 4,
+      "recall_pct": 0.0
+    },
+    "time": {
+      "tier": "out",
+      "n": 377,
+      "detected": 0,
+      "exposed": 345,
+      "held": 32,
+      "recall_pct": 0.0
+    },
+    "unique_id": {
+      "tier": "out",
+      "n": 42,
+      "detected": 10,
+      "exposed": 30,
+      "held": 3,
+      "protected": 8,
+      "partial": 1,
+      "recall_pct": 23.8
+    },
+    "url": {
+      "tier": "out",
+      "n": 873,
+      "detected": 84,
+      "partial": 75,
+      "held": 56,
+      "exposed": 741,
+      "protected": 1,
+      "detected_low": 6,
+      "recall_pct": 9.6
+    },
+    "vehicle_identifier": {
+      "tier": "out",
+      "n": 167,
+      "detected": 0,
+      "exposed": 163,
+      "held": 4,
+      "recall_pct": 0.0
+    },
+    "bank_routing_number": {
+      "tier": "quasi",
+      "n": 141,
+      "detected": 0,
+      "exposed": 136,
+      "held": 5,
+      "recall_pct": 0.0
+    },
+    "blood_type": {
+      "tier": "quasi",
+      "n": 82,
+      "detected": 28,
+      "protected": 26,
+      "held": 4,
+      "exposed": 52,
+      "recall_pct": 34.1
+    },
+    "certificate_license_number": {
+      "tier": "quasi",
+      "n": 132,
+      "detected": 0,
+      "exposed": 121,
+      "held": 11,
+      "recall_pct": 0.0
+    },
+    "customer_id": {
+      "tier": "quasi",
+      "n": 355,
+      "detected": 45,
+      "exposed": 288,
+      "held": 22,
+      "protected": 45,
+      "recall_pct": 12.7
+    },
+    "first_name": {
+      "tier": "quasi",
+      "n": 1144,
+      "detected": 72,
+      "exposed": 974,
+      "protected": 55,
+      "held": 114,
+      "partial": 1,
+      "recall_pct": 6.3
+    },
+    "ipv4": {
+      "tier": "quasi",
+      "n": 153,
+      "detected": 127,
+      "protected": 107,
+      "held": 21,
+      "exposed": 25,
+      "detected_low": 2,
+      "recall_pct": 83.0
+    },
+    "ipv6": {
+      "tier": "quasi",
+      "n": 87,
+      "detected": 84,
+      "protected": 68,
+      "held": 17,
+      "exposed": 2,
+      "recall_pct": 96.6
+    },
+    "last_name": {
+      "tier": "quasi",
+      "n": 896,
+      "detected": 53,
+      "exposed": 760,
+      "protected": 37,
+      "held": 99,
+      "recall_pct": 5.9
+    },
+    "license_plate": {
+      "tier": "quasi",
+      "n": 131,
+      "detected": 7,
+      "exposed": 117,
+      "held": 7,
+      "protected": 7,
+      "recall_pct": 5.3
+    },
+    "political_view": {
+      "tier": "quasi",
+      "n": 72,
+      "detected": 2,
+      "exposed": 66,
+      "held": 4,
+      "protected": 2,
+      "recall_pct": 2.8
+    },
+    "race_ethnicity": {
+      "tier": "quasi",
+      "n": 128,
+      "detected": 17,
+      "exposed": 105,
+      "held": 7,
+      "protected": 16,
+      "recall_pct": 13.3
+    },
+    "religious_belief": {
+      "tier": "quasi",
+      "n": 114,
+      "detected": 4,
+      "exposed": 104,
+      "held": 6,
+      "protected": 4,
+      "recall_pct": 3.5
+    },
+    "sexuality": {
+      "tier": "quasi",
+      "n": 39,
+      "detected": 5,
+      "exposed": 34,
+      "protected": 4,
+      "held": 1,
+      "recall_pct": 12.8
+    },
+    "user_name": {
+      "tier": "quasi",
+      "n": 304,
+      "detected": 11,
+      "protected": 10,
+      "exposed": 260,
+      "held": 34,
+      "recall_pct": 3.6
+    }
+  },
+  "censoring_findings_on_unlabelled_text": {
+    "PERSON_NAME": 297,
+    "CONFIDENTIAL_MARKER": 103,
+    "ADDRESS": 38,
+    "EMPLOYEE_ID": 34,
+    "EMAIL": 23,
+    "MEDICAL_RECORD": 16,
+    "BANK_ACCOUNT": 16,
+    "BUSINESS_SENSITIVE_TERM": 15,
+    "SSN": 11,
+    "DATE_OF_BIRTH": 10,
+    "PHONE": 8,
+    "CREDIT_CARD": 8,
+    "IP_ADDRESS": 6,
+    "SALARY": 5,
+    "IP_MARKER": 5,
+    "CASE_NUMBER": 4,
+    "MEDICAL_DIAGNOSIS": 4,
+    "ILLEGAL_ACTIVITY": 3,
+    "EMAIL_CORRESPONDENT": 3,
+    "ACCESS_TOKEN": 3,
+    "ETHNICITY": 2,
+    "RELIGION": 2,
+    "PASSWORD": 2,
+    "BIOMETRIC": 1,
+    "NATIONAL_ID": 1,
+    "TRAVEL_BOOKING": 1,
+    "INTERNAL_IP": 1,
+    "SECURITY_MARKER": 1,
+    "GPS_COORDINATES": 1,
+    "DISABILITY_INFO": 1,
+    "TRANSACTION_ID": 1,
+    "INSURANCE_POLICY": 1,
+    "OAUTH_SECRET": 1
+  }
+}

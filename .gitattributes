@@ -1,0 +1,4 @@
+# Keep line endings correct for the double-click starters on every OS
+*.bat     text eol=crlf
+*.command text eol=lf
+*.sh      text eol=lf

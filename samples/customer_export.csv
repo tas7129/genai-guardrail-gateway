@@ -1,0 +1,11 @@
+customer_id,full_name,email,phone,city,plan,monthly_spend,last_login_days
+C1001,Aarav Kapoor,aarav.kapoor@inboxly.in,+91 95254 61750,Pune,Basic,9278,12
+C1002,Diya Iyer,diya.iyer@inboxly.in,+91 95696 17602,Mumbai,Basic,1113,11
+C1003,Kabir Menon,kabir.menon@inboxly.in,+91 96528 19156,Chennai,Basic,9527,54
+C1004,Meera Shah,meera.shah@inboxly.in,+91 90946 84115,Pune,Basic,1512,73
+C1005,Rohan Verma,rohan.verma@inboxly.in,+91 99506 16499,Chennai,Basic,9619,109
+C1006,Isha Reddy,isha.reddy@inboxly.in,+91 92396 64937,Chennai,Enterprise,2428,73
+C1007,Vivaan Nair,vivaan.nair@inboxly.in,+91 94673 99391,Chennai,Basic,9857,81
+C1008,Anaya Gupta,anaya.gupta@inboxly.in,+91 93481 22770,Mumbai,Enterprise,1527,72
+C1009,Arjun Bose,arjun.bose@inboxly.in,+91 90733 36995,Kochi,Enterprise,9210,54
+C1010,Sara Khan,sara.khan@inboxly.in,+91 95576 86750,Kochi,Pro,5410,31

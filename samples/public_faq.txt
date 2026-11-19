@@ -1,0 +1,7 @@
+Nimbus Cloud Storage - Public FAQ
+
+Q: How much free storage do I get?
+A: Every account includes 15 GB of free storage.
+
+Q: Can I share folders with people outside my organisation?
+A: Yes, using view-only links that expire after 30 days.

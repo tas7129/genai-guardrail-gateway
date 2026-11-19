@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "description": "Severity-based censorship policy. Admins can switch strict_mode in the governance panel; everything else is edited here.",
+  "strict_mode": false,
+  "min_confidence": 0.5,
+  "levels": {
+    "CRITICAL": {
+      "action": "redact",
+      "summary": "Always censored with a descriptive placeholder; the original value never reaches the LLM. The request is blocked when safe redaction is not possible.",
+      "examples": ["Passwords", "API keys", "Authentication tokens", "Private encryption keys", "OTPs", "Bank login credentials", "CVV and PIN numbers", "Crypto private keys"]
+    },
+    "HIGH": {
+      "action": "redact",
+      "summary": "Automatically redacted with a category-specific placeholder before forwarding; the rest of the prompt is preserved and the user is notified.",
+      "examples": ["Aadhaar / PAN / passport numbers", "Bank account and card numbers", "Medical records", "Children's personal information", "Live location", "Confidential legal records", "Internal hosts and IPs"]
+    },
+    "MEDIUM": {
+      "action": "review",
+      "strict_action": "redact",
+      "summary": "The user is warned and can review the items, then choose to redact them or send anyway. In strict mode they are redacted automatically.",
+      "examples": ["Personal phone numbers and emails", "Residential addresses", "Dates of birth", "Employee IDs", "Personal financial details", "Private communications", "Sensitive personal attributes"]
+    },
+    "LOW": {
+      "action": "allow",
+      "summary": "Not censored. Shown as an informational note only.",
+      "examples": ["Public business contacts and addresses", "Documented example / placeholder values", "Generic network addresses", "Low-confidence matches"]
+    }
+  },
+  "document_level_action": "MANAGER_APPROVAL",
+  "critical_unsafe_redaction": {
+    "block_if_found_in_ocr_text": true,
+    "block_if_secrets_file": true,
+    "secrets_file_min_assignment_lines": 3,
+    "block_if_distinct_critical_at_least": 4
+  },
+  "children_minimum_severity": "HIGH",
+  "entity_severity_overrides": {}
+}

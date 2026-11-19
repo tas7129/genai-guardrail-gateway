@@ -1,0 +1,20 @@
+{
+  "classifier": "Llama Guard 3 (local, via Ollama)",
+  "note": "Category codes follow the Llama Guard 3 hazard taxonomy. BLOCK = the request never reaches the assistant model. WARN = recorded and shown to the user; other gateway checks still apply (privacy and intellectual property are handled by the sensitive-information detectors and the source-code / confidential-information policies).",
+  "categories": {
+    "S1":  {"label": "Violent crimes", "action": "BLOCK"},
+    "S2":  {"label": "Non-violent crimes", "action": "BLOCK"},
+    "S3":  {"label": "Sex-related crimes", "action": "BLOCK"},
+    "S4":  {"label": "Child sexual exploitation", "action": "BLOCK"},
+    "S5":  {"label": "Defamation", "action": "WARN"},
+    "S6":  {"label": "Specialised advice", "action": "WARN"},
+    "S7":  {"label": "Privacy", "action": "WARN"},
+    "S8":  {"label": "Intellectual property", "action": "WARN"},
+    "S9":  {"label": "Indiscriminate weapons", "action": "BLOCK"},
+    "S10": {"label": "Hate", "action": "BLOCK"},
+    "S11": {"label": "Suicide and self-harm", "action": "BLOCK", "support": true},
+    "S12": {"label": "Sexual content", "action": "BLOCK"},
+    "S13": {"label": "Elections", "action": "WARN"},
+    "S14": {"label": "Code interpreter abuse", "action": "BLOCK"}
+  }
+}
