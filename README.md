@@ -1,4 +1,4 @@
-# 🛡️ GenAI Guardrail Gateway
+# GenAI Guardrail Gateway
 
 **AI Usage Governance Agent** · Agent Forge: Agentic AI Hackathon · **PS16** · Data Privacy, Security & Governance
 
