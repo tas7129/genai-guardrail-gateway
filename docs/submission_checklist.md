@@ -8,7 +8,7 @@
 - [ ] `python scripts/verify_safety_model.py` → 8/8 with real Ollama
 - [ ] `python scripts/smoke_test.py` → 19/19 with real Ollama
 - [ ] `python scripts/run_audit.py` → 0 failed (report in `audit_report/AUDIT_REPORT.md`)
-- [ ] README team table filled with real names
+- [x] README team table filled with real names
 - [ ] `.gitignore` excludes `data/`, `.venv/`, `.env`, `*.db`, `*.key` (run `git status` and confirm none are staged)
 - [ ] No real credentials or personal data anywhere (all samples are synthetic)
 - [ ] Repo contains: frontend, backend, scanner, OCR, ChromaDB retrieval, decision engine, LLM integration, database, sample policy, tests, README, requirements, gitignore

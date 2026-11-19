@@ -2,11 +2,11 @@
 
 ## Responsibilities and file ownership
 
-| Member | Role | Owns |
+| Workstream | Area | Owns |
 |---|---|---|
-| Member 1 | Security & Backend | `backend/scanner/entities.py`, `detectors.py`, `classifier.py`, `policy/severity_policy.json`, `scanner/redactor.py`, `decision.py`, `approvals.py`, `vault.py`, `db.py`, `auth.py` |
-| Member 2 | Frontend & UX | `frontend/index.html`, `frontend/styles.css`, `frontend/app.js`, slide visuals |
-| Member 3 | AI, Policy & Integration | `backend/llm.py`, `backend/policy/*`, `policy/ai_usage_policy.json`, `scanner/ocr.py`, `scanner/attachments.py`, `pipeline.py`, `main.py`, `tests/`, `docs/`, demo video |
+| 1 | Security & Backend | `backend/scanner/entities.py`, `detectors.py`, `classifier.py`, `policy/severity_policy.json`, `scanner/redactor.py`, `decision.py`, `approvals.py`, `vault.py`, `db.py`, `auth.py` |
+| 2 | Frontend & UX | `frontend/index.html`, `frontend/styles.css`, `frontend/app.js`, slide visuals |
+| 3 | AI, Policy & Integration | `backend/llm.py`, `backend/policy/*`, `policy/ai_usage_policy.json`, `scanner/ocr.py`, `scanner/attachments.py`, `pipeline.py`, `main.py`, `tests/`, `docs/`, demo video |
 
 ## Integration contracts (agree these first)
 

@@ -1,6 +1,6 @@
 # 🛡️ GenAI Guardrail Gateway — AI Usage Governance Agent
 
-**Agent Forge: Agentic AI Hackathon · PS16 · Theme: Data Privacy, Security & Governance**
+**Agent Forge: Agentic AI Hackathon · PS16 · Theme: Data Privacy, Security & Governance · Team 3Musketeers**
 
 An AI chat assistant with a built-in security gateway. Employees chat with a **local LLM (Ollama + Qwen)** as usual. Every prompt and attachment is intercepted first, screened by a **Guardrail Agent** (sensitive-data detection, OCR for images, a content-safety check by a second local model, **Llama Guard 3**, and policy retrieval from **ChromaDB**), and ends with one of four outcomes: **ALLOW**, **REDACT & ALLOW**, **BLOCK** or **REQUEST MANAGER APPROVAL**. Censorship is **severity-based** (CRITICAL / HIGH / MEDIUM / LOW): secrets and IDs are replaced with descriptive placeholders such as `[API KEY REDACTED]`, and MEDIUM personal details trigger a warning the user reviews before anything is sent. The gateway logs every decision. A shield icon opens a role-based governance dashboard built from the real audit data.
 
@@ -346,13 +346,15 @@ To reproduce, see [`datasets/README.md`](datasets/README.md):
 python scripts/datasets/build_processed.py && python scripts/datasets/evaluate.py all
 ```
 
-## 11. Team responsibilities (3 members)
+## 11. Team
 
-| Member | Owns | Files | Integration point |
-|---|---|---|---|
-| **Member 1 – Security & Backend** | Detection, redaction, decision engine, approval gate, vault, audit DB | `backend/scanner/entities.py`, `detectors.py`, `classifier.py`, `redactor.py`, `policy/severity_policy.json`, `decision.py`, `approvals.py`, `vault.py`, `db.py` | `Finding` objects → `decide()`; audit row schema |
-| **Member 2 – Frontend & UX** | Chat UI, live screening panel, governance panel, charts | `frontend/index.html`, `styles.css`, `app.js` | NDJSON event stream from `/api/chat`; JSON endpoints in `main.py` |
-| **Member 3 – AI, Policy & Integration** | Ollama/Qwen, ChromaDB policy store, OCR/attachments, pipeline wiring, dataset evaluation, tests, demo | `backend/llm.py`, `policy/`, `backend/policy/`, `scanner/ocr.py`, `attachments.py`, `pipeline.py`, `scripts/datasets/`, `dataset_audit/`, `tests/`, `docs/` | `retrieve()` output → decision engine; `run_guardrail()` events |
+**Team 3Musketeers**
+
+| Name | USN |
+|---|---|
+| Ramyaa Nagotia | 1CR24CS144 |
+| Shreya Tumari | 1CR24CS174 |
+| Tasmai S Dath | 1CR24CS200 |
 
 ## 12. Known limitations (honest list)
 

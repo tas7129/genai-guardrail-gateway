@@ -4,7 +4,7 @@ Record at 1440×900 or 1920×1080, browser zoom 100%, dark mode. Use **real Olla
 
 | Time | Speaker | On screen | Narration (say roughly this) |
 |---|---|---|---|
-| 0:00–0:20 | Member 1 | Title slide / team on camera | "Hi, we're *[names]*, and this is the GenAI Guardrail Gateway, our solution to PS16, AI Usage Governance." |
+| 0:00–0:20 | Member 1 | Title slide / team on camera | "Hi, we're Ramyaa, Shreya and Tasmai from team 3Musketeers, and this is the GenAI Guardrail Gateway, our solution to PS16, AI Usage Governance." |
 | 0:20–0:50 | Member 1 | Slide 2 (problem) | "Employees paste source code, customer records and confidential plans into AI tools every day. Banning AI doesn't work, and governance teams have no visibility. We need AI that's safe by default." |
 | 0:50–1:20 | Member 3 | Slide 3 (architecture) | "Our gateway sits between the employee and a local Qwen model running in Ollama. Before anything reaches the model, a Guardrail Agent runs five checks: sensitive-information detection, attachment and OCR inspection, a content-safety check by a second local model, Llama Guard, policy retrieval from ChromaDB, and a final security decision. Llama Guard only classifies – it never answers – and if it can't give a verdict, the request is blocked. The assistant never makes the security decision, so prompt injection can't talk its way past it." |
 | 1:20–1:45 | Member 2 | App, Asha. Click **General question** → Send | "Asha asks a normal question. Watch the screening panel: these are real backend steps with real timings. No violations, so the clause on public information allows it and Qwen answers locally." |
